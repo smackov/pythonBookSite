@@ -1,7 +1,9 @@
 from rest_framework import serializers
+
 from .models import Chapter, Section, Article
 
-class IndexSerializer(serializers.ModelSerializer):
+
+class ChapterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chapter
         fields = ('id', 'name', 'section')

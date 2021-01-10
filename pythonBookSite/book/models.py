@@ -9,13 +9,13 @@ class Chapter(models.Model):
 class Section(models.Model):
     "Section contains several articles"
     name = models.CharField(max_length=100)
-    chapter = models.ForeignKey(Chapter, related_name='section1', blank=True, 
+    chapter = models.ForeignKey(Chapter, related_name='sections', blank=True, 
                                 null=True, on_delete=models.CASCADE)
     
 
 class Article(models.Model):
     "Article is a topic text"
     name = models.CharField(max_length=100)
-    section = models.ForeignKey(Section, related_name='article1', blank=True,
+    section = models.ForeignKey(Section, related_name='articles', blank=True,
                                 null=True, on_delete=models.CASCADE)
     text = models.TextField(blank=True, null=True)
