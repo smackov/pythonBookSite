@@ -1,23 +1,22 @@
-from rest_framework import views, permissions
-from rest_framework.response import Response
-from django.http import Http404
+from rest_framework import generics, permissions
 
-from .models import Article
-from .serializers import ArticleSerializer
+from .models import Chapter, Section, Article
+from .serializers import (
+    ArticleSerializer, 
+    ChapterSerializer,
+)
 
 
-class ArticleDetailView(views.APIView):
+class ArticleDetailView(generics.RetrieveAPIView):
     "Get the article by primary key"
     permission_classes = [permissions.AllowAny]
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
     
-    def get_object(self, pk):
-        try:
-            return Article.objects.get(pk=pk)
-        except Article.DoesNotExist:
-            raise Http404
-    
-    def get(self, request, pk):
-        article = self.get_object(pk=pk)
-        serializer = ArticleSerializer(article)
-        return Response(serializer.data)
+
+class ChapterListView(generics.ListAPIView):
+    "Get the list of chapters with nested index of sections and articles"
+    permission_classes = [permissions.AllowAny]
+    serializer_class = ChapterSerializer
+    queryset = Chapter.objects.all()
     

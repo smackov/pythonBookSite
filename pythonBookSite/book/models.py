@@ -2,20 +2,20 @@ from django.db import models
 
 
 class Chapter(models.Model):
-    "Part contains several sections"
+    "Chapter contains several sections"
     name = models.CharField(max_length=100)
 
 
 class Section(models.Model):
     "Section contains several articles"
     name = models.CharField(max_length=100)
-    chapter = models.ForeignKey(Chapter, related_name='sections', blank=True, 
+    parent_chapter = models.ForeignKey(Chapter, related_name='child_sections', blank=True,
                                 null=True, on_delete=models.CASCADE)
-    
+
 
 class Article(models.Model):
     "Article is a topic text"
     name = models.CharField(max_length=100)
-    section = models.ForeignKey(Section, related_name='articles', blank=True,
+    parent_section = models.ForeignKey(Section, related_name='child_articles', blank=True,
                                 null=True, on_delete=models.CASCADE)
     text = models.TextField(blank=True, null=True)
