@@ -1,19 +1,6 @@
 from rest_framework import serializers
 
 from .models import Chapter, Section, Article
-
-
-class SectionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Section
-        fields = ('id', 'name', 'child_articles')
-    
-
-class ChapterSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Chapter
-        fields = ('id', 'name', 'child_sections')
-        depth = 1
   
     
 class ArticleSerializer(serializers.ModelSerializer):
@@ -21,3 +8,23 @@ class ArticleSerializer(serializers.ModelSerializer):
         model = Article
         fields = '__all__'
         
+    
+class ArticleShortSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(max_length=100)
+    serial_number = serializers.CharField(max_length=8)
+    
+
+class SectionSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(max_length=100)
+    serial_number = serializers.CharField(max_length=5)
+    child_articles = ArticleShortSerializer(many=True)
+    
+
+class ChapterSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(max_length=100)
+    serial_number = serializers.CharField(max_length=2)
+    child_sections = SectionSerializer(many=True)
+    
