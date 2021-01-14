@@ -2,6 +2,9 @@
 /staticfiles
 /static
 
+# Node modules
+/node_modules
+
 #Database
 *.sqlite3
 

@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'book.apps.BookConfig',
+    'frontend.apps.FrontendConfig',
     'rest_framework',
 ]
 
@@ -59,6 +60,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'pythonBookSite.wsgi.application'
 
+# REST FRAMEWORK
+
+REST_FRAMEWORK = {
+    # TODO: Activate in production
+    # 'DEFAULT_RENDERER_CLASSES': (
+    #     'rest_framework.renderers.JSONRenderer',
+    # )
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
