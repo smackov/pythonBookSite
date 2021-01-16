@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import ReactDOM from 'react-dom';
 
 import Header from './layout/Header';
+import Footer from './layout/Footer';
 import Dashboard from './book/Dashboard';
 
 import {Provider} from 'react-redux';
@@ -16,6 +17,7 @@ class App extends Component {
                 <div className="container">
                     <Dashboard />
                 </div>
+                <Footer />
             </Fragment>
             </Provider>    
         );
