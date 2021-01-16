@@ -1,6 +1,6 @@
 # Static files
-/staticfiles
-/static
+/pythonBookSite/staticfiles
+/pythonBookSite/static
 
 # Node modules
 /node_modules
@@ -77,3 +77,6 @@ local_settings.py
 
 # Text backup files
 *.bak
+
+# Config for Jshint extension of VS Code
+.jshintrc
