@@ -1,0 +1,15 @@
+.article-list {
+    columns: 3;
+}
+
+.text-20rem {
+    font-size: 2rem;
+}
+
+.text-17rem {
+    font-size: 1.7rem;
+}
+
+.text-15rem {
+    font-size: 1.5rem;
+}

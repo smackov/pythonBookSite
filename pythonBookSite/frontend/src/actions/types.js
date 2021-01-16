@@ -1,0 +1,1 @@
+export const GET_CHAPTERS = "GET_CHAPTERS";
