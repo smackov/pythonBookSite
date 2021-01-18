@@ -18,7 +18,7 @@ class App extends Component {
                 <Router>
                     <Fragment>
                         <Header />
-                        <div className="container">
+                        <div className="container-fluid">
                             <Route exact path="/" component={Chapters} />
                             <Route exact path="/article" component={Article} />
                         </div>

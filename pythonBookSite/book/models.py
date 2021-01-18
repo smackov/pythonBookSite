@@ -21,4 +21,5 @@ class Article(models.Model):
     parent_section = models.ForeignKey(Section, related_name='child_articles', blank=True,
                                 null=True, on_delete=models.CASCADE)
     text = models.TextField(blank=True, null=True)
+    content_index = models.TextField(blank=True, null=True)
     serial_number = models.CharField(max_length=5, blank=True, null=True)
