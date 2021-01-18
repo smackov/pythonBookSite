@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import chapters from './book';
+import chapters from './chapters';
+import article from './article';
 
 export default combineReducers({
-    chapters
+    chapters,
+    article
 });
