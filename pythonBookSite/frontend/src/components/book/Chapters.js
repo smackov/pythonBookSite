@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getChapters } from '../../actions/book';
 
+import {Link} from "react-router-dom";
+
 
 export class Chapters extends Component {
     static propTypes = {
@@ -35,7 +37,7 @@ export class Chapters extends Component {
                                                                 return (
                                                                     <li className="article-item list-unstyled" key={article.id}>
                                                                         {article.serial_number} &nbsp;
-                                                                        <a href="#">{article.name}</a>
+                                                                        <Link to={`article/${article.id}`}>{article.name}</Link>
                                                                     </li>
                                                                 )
                                                             })}

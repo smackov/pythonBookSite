@@ -19,7 +19,7 @@
     max-width: 800px;
 }
 
-.article-content code {
+/* .article-content code {
     font-family: Consolas,Lucida Console,Menlo,Monaco,monospace;
     padding: 2px 4px;
     background: #f5f2f0;
@@ -32,6 +32,7 @@
     padding-bottom: 1.1rem;
     margin-bottom: 1.1rem;
 }
+*/
 
 .article-content h1 {
     margin-bottom: 1.8rem;
@@ -57,7 +58,7 @@
 
 .article-content li {
     margin-bottom: 1.3rem;
-}
+} 
 
 /* 
 pre, .rst-content tt {

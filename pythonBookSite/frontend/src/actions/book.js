@@ -18,7 +18,7 @@ export const getChapters = () => dispatch => {
 // GET ARTICLE
 export const getArticle = () => dispatch => {
     axios
-        .get('/api/article/1/')
+        .get('/api/article/3/')
         .then(res => {
             dispatch({
                 type: GET_ARTICLE,
