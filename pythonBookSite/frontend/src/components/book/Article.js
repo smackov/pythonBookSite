@@ -7,6 +7,9 @@ import { getArticle } from '../../actions/book';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 
+// import '../../../static/frontend/css/github-highlight.css';
+import hljs from "highlight.js";
+
 
 export class Article extends Component {
     static propTypes = {
@@ -14,8 +17,19 @@ export class Article extends Component {
     };
 
     componentDidMount() {
+        this.updateCodeSyntaxHighlighting();
         this.props.getArticle();
     }
+
+    componentDidUpdate() {
+        this.updateCodeSyntaxHighlighting();
+    }
+
+    updateCodeSyntaxHighlighting = () => {
+        document.querySelectorAll("pre code").forEach(block => {
+            hljs.highlightBlock(block);
+        });
+    };
 
     render() {
         return (
