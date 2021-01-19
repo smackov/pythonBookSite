@@ -26,6 +26,6 @@ class SectionAdmin(admin.ModelAdmin):
     
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('name', 'serial_number', 'parent_section')
+    list_display = ('id', 'name', 'serial_number', 'parent_section')
     list_filter = ('parent_section',)
     
