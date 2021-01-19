@@ -30,7 +30,6 @@
 
 .article-content pre {
     padding-left: 20px;
-    margin-bottom: 1.1rem;
     background-color: #e9e6e4;
 }
 
@@ -58,7 +57,10 @@
     font-weight: 500;
 }
 
-.article-content p, ul, div, pre {
+.article-content p, 
+.article-content ul, 
+.article-content div, 
+.article-content pre {
     margin-bottom: 1.5rem;
 }
 
