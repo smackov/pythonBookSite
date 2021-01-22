@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+import { Link } from 'react-router-dom';
 
 export class Header extends Component {
     render() {
@@ -6,8 +8,10 @@ export class Header extends Component {
 
             <nav className="navbar navbar-expand-lg navbar-primary bg-primary p-1">
                 <div className="container">
-                    <a className="navbar-brand" href="#">
+                    <a className="navbar-brand">
+                        <Link to="/">
                         <img src="/static/frontend/img/Real_python.svg" height="40" className="img" alt="Real Python"></img>
+                        </Link>
                     </a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

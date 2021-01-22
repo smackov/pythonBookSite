@@ -29,7 +29,7 @@ class App extends Component {
                         <div className="container-fluid">
                             <Switch>
                                 <Route exact path="/" component={Chapters} />
-                                <Route exact path="/article" component={Article} />
+                                <Route exact path="/article/:id" component={Article} />
                                 <Route component={Error} />
                             </Switch>
                         </div>

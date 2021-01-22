@@ -16,9 +16,9 @@ export const getChapters = () => dispatch => {
 };
 
 // GET ARTICLE
-export const getArticle = () => dispatch => {
+export const getArticle = (id) => dispatch => {
     axios
-        .get('/api/article/3/')
+        .get(`/api/article/${id}/`)
         .then(res => {
             dispatch({
                 type: GET_ARTICLE,

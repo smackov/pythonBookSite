@@ -37,7 +37,7 @@ export class Chapters extends Component {
                                                                     return (
                                                                         <li className="article-item list-unstyled" key={article.id}>
                                                                             {article.serial_number} &nbsp;
-                                                                            <Link to={`article/${article.id}`}>{article.name}</Link>
+                                                                            <Link to={`/article/${article.id}`}>{article.name}</Link>
                                                                         </li>
                                                                     )
                                                                 })}

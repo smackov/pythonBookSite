@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from "react-router";
 
 import { getArticle } from '../../actions/book';
 
@@ -17,8 +18,9 @@ export class Article extends Component {
     };
 
     componentDidMount() {
+        const id = this.props.match.params.id;
+        this.props.getArticle(id);
         this.updateCodeSyntaxHighlighting();
-        this.props.getArticle();
     }
 
     componentDidUpdate() {
@@ -53,8 +55,8 @@ const mapStateToProps = state => ({
     article: state.article.article
 });
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     { getArticle }
-)(Article);
+)(Article));
 
