@@ -18,7 +18,6 @@ export class Chapters extends Component {
     render() {
         return (
             <Fragment>
-                <div className="container">
                     <div className="row my-4">
                         <div className="col-lg-10">
                             <div className="chapter-list">
@@ -64,7 +63,6 @@ export class Chapters extends Component {
                             </ul>
                         </div>
                     </div>
-                </div>
             </Fragment>
         )
     }
