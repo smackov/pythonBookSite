@@ -67,3 +67,11 @@
 .article-content li {
     margin-bottom: 1.3rem;
 } 
+
+.content h1 {
+    font-size: 1.5rem;
+}
+
+.content h2, h3 {
+    font-size: 1.2rem;
+}
