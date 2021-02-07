@@ -20,13 +20,12 @@
 }
 
 .article-content p code {
-    font-family: Consolas,Lucida Console,Menlo,Monaco,monospace;
+    font-family: Consolas, Lucida Console, Menlo, Monaco, monospace;
     padding: 2px 4px;
     background: #f5f2f0;
     border-radius: 2px;
     color: #333;
 }
-
 
 .article-content pre {
     padding-left: 20px;
@@ -57,16 +56,13 @@
     font-weight: 500;
 }
 
-.article-content p, 
-.article-content ul, 
-.article-content div, 
-.article-content pre {
+.article-content p, .article-content ul, .article-content div, .article-content pre {
     margin-bottom: 1.5rem;
 }
 
 .article-content li {
     margin-bottom: 1.3rem;
-} 
+}
 
 .content h1 {
     font-size: 1.5rem;
@@ -74,4 +70,28 @@
 
 .content h2, h3 {
     font-size: 1.2rem;
+}
+
+/* SIDEBAR FIXED BAR FOR ARTICLES */
+
+.sidebar-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 0 15px;
+}
+
+@media (max-width: 992px) {
+    .sidebar-item {
+        position: absolute;
+        top: -90000px;
+    }
 }

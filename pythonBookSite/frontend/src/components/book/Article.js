@@ -53,24 +53,26 @@ export class Article extends Component {
         return (
             <Fragment>
                 <div className="wrapper">
-                <div className="row my-4">
-                    <div className="col-lg-3 border-right content">
-                        <nav className="nav nav-list side-nav well sidebar-nav-fixed">
-                        <h1 className="text-15rem mb-4">Content:</h1>
-                            <ReactMarkdown
-                                plugins={[gfm, slug, [headings, { behavior: 'wrap' }]]}
-                                children={this.props.article.content_index} />
-                        </nav>
-                    </div>
-                    <div className="col-lg-9 pl-4">
-                        <div className="article-content mx-auto">
-                            <ReactMarkdown
-                                plugins={[gfm, slug]}
-                                renderers={{ heading: HeadingRenderer }}
-                                children={this.props.article.text} />
+                    <div className="row my-4">
+                        <div className="col-lg-3 border-right content">
+                            <div className="sidebar-item">
+                                <nav className="nav nav-list side-nav well sidebar-sticky pt-3">
+                                    <h1 className="text-15rem mb-4">Content:</h1>
+                                    <ReactMarkdown
+                                        plugins={[gfm, slug, [headings, { behavior: 'wrap' }]]}
+                                        children={this.props.article.content_index} />
+                                </nav>
+                            </div>
+                        </div>
+                        <div className="col-lg-9 pl-4">
+                            <div className="article-content mx-auto">
+                                <ReactMarkdown
+                                    plugins={[gfm, slug]}
+                                    renderers={{ heading: HeadingRenderer }}
+                                    children={this.props.article.text} />
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </Fragment>
         )
