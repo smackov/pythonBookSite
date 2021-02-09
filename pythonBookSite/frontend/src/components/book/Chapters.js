@@ -24,7 +24,7 @@ export class Chapters extends Component {
                                 {this.props.chapters.map(chapter => {
                                     return (
                                         <div className="chapter-item border-bottom mb-4">
-                                            <span className="badge badge-primary">Часть {chapter.serial_number}</span>
+                                            <span className="badge badge-orange">Часть {chapter.serial_number}</span>
                                             <h1 className="text-20rem my-2" id={chapter.id}>{chapter.name}</h1>
                                             <div className="section-list my-4 px-2">
                                                 {chapter.child_sections.map(section => {

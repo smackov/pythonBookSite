@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export class Footer extends Component {
     render() {
         return (
-            <footer className="footer mt-auto bg-dark p-2 mb-0">
+            <footer className="footer bg-light mt-auto p-2 mb-0">
                 <div className="container text-center my-0">
                     <p className="text-decoration-none my-0">
                         This web application was created by
