@@ -12,14 +12,21 @@ import {
 
 import Header from './layout/Header';
 import Footer from './layout/Footer';
+import Error from './layout/Error';
 import Chapters from './book/Chapters';
 import Article from './book/Article';
-import Error from './layout/Error';
+import Login from './accounts/Login';
+
+import { loadUser } from '../actions/auth';
 
 import { Provider } from 'react-redux';
 import store from '../store';
 
 class App extends Component {
+    componentDidMount() {
+        store.dispatch(loadUser());
+    }
+
     render() {
         return (
             <Provider store={store}>
@@ -30,6 +37,7 @@ class App extends Component {
                             <Switch>
                                 <Route exact path="/" component={Chapters} />
                                 <Route exact path="/article/:id" component={Article} />
+                                <Route exact path="/login" component={Login} />
                                 <Route component={Error} />
                             </Switch>
                         </div>

@@ -27,6 +27,9 @@ export class Header extends Component {
                             <li className="nav-item">
                                 <a href="https://github.com/smackov/python-book" className="btn btn-info">GitHub</a>
                             </li>
+                            <li className="nav-item">
+                                <Link to="/login" className="btn btn-danger">Login</Link>
+                            </li>
                         </ul>
                         <form className="form-inline my-2 my-md-0">
                             <input className="form-control" type="text" placeholder="Search" aria-label="Search"></input>
