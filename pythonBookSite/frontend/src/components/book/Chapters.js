@@ -34,7 +34,7 @@ export class Chapters extends Component {
                                                             <ul className="article-list mx-0 px-0">
                                                                 {section.child_articles.map(article => {
                                                                     return (
-                                                                        <li className="article-item list-unstyled" key={article.id}>
+                                                                        <li key={article.id} className="article-item list-unstyled">
                                                                             {article.serial_number} &nbsp;
                                                                             <Link to={`/article/${article.id}`}>{article.name}</Link>
                                                                         </li>

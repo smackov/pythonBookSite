@@ -8,11 +8,9 @@ export class Header extends Component {
 
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary p-0">
                 <div className="container-lg">
-                    <a className="navbar-brand">
-                        <Link to="/">
+                    <Link to="/" className="navbar-brand">
                         <img src="/static/frontend/img/Python-book.png" height="50" className="img" alt="Real Python"></img>
-                        </Link>
-                    </a>
+                    </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
