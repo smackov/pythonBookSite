@@ -6,5 +6,4 @@ export const AUTH_ERROR = "AUTH_ERROR";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const GET_ERRORS = "GET_ERRORS";
-export const GET_MESSAGES = "GET_MESSAGES";
 export const CREATE_MESSAGE = "CREATE_MESSAGE";
