@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { GET_CHAPTERS, GET_ARTICLE, GET_ERRORS } from './types';
+import { returnErrors } from './messages';
 
 // GET CHAPTERS
 export const getChapters = () => dispatch => {
@@ -12,16 +13,9 @@ export const getChapters = () => dispatch => {
                 payload: res.data
             });
         })
-        .catch(err => {
-            const errors = {
-                msg: err.response.data,
-                status: err.response.status
-            };
-            dispatch ({
-                type: GET_ERRORS,
-                payload: errors
-            });
-        });
+        .catch((err) => dispatch(returnErrors(
+            err.response.data, err.response.status
+        )));
 };
 
 // GET ARTICLE
@@ -34,14 +28,7 @@ export const getArticle = (id) => dispatch => {
                 payload: res.data
             });
         })
-        .catch(err => {
-            const errors = {
-                msg: err.response.data,
-                status: err.response.status
-            };
-            dispatch ({
-                type: GET_ERRORS,
-                payload: errors
-            });
-        });
+        .catch((err) => dispatch(returnErrors(
+            err.response.data, err.response.status
+        )));
 };
