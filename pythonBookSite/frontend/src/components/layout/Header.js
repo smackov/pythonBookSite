@@ -1,11 +1,43 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export class Header extends Component {
-    render() {
-        return (
+    static propTypes = {
+        auth: PropTypes.object.isRequired
+    };
 
+    render() {
+        const { isAuthenticated, user } = this.props.auth;
+
+        const authLinks = (
+            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+                <span className="navbar-text mr-3">
+                    <strong>
+                        {user ? `Welcome ${user.username}` : ''}
+                    </strong>
+                </span>
+                <li className="nav-item">
+                    <button className="nav-link btn btn-info btn-sm text-light">
+                        Logout
+                    </button>
+                </li>
+            </ul>
+        );
+
+        const guestLinks = (
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                    <Link to="/register" className="nav-link">Register</Link>
+                </li>
+                <li className="nav-item">
+                    <Link to="/login" className="nav-link">Login</Link>
+                </li>
+            </ul>
+        );
+
+        return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary p-0">
                 <div className="container-lg">
                     <Link to="/" className="navbar-brand">
@@ -28,9 +60,11 @@ export class Header extends Component {
                             <li className="nav-item">
                                 <Link to="/login" className="btn btn-danger">Login</Link>
                             </li>
-                            <li className="nav-item">
-                                
-                            </li>
+
+                            <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
+                                {isAuthenticated ? authLinks : guestLinks}
+                            </div>
+                            
                         </ul>
                         <form className="form-inline my-2 my-md-0">
                             <input className="form-control" type="text" placeholder="Search" aria-label="Search"></input>
@@ -42,4 +76,8 @@ export class Header extends Component {
     }
 }
 
-export default Header
+const mapStateToProps = state => ({
+    auth: state.auth
+});
+
+export default connect(mapStateToProps)(Header);
