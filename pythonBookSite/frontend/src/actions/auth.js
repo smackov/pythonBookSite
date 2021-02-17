@@ -21,7 +21,13 @@ export const loadUser = () => (dispatch, getState) => {
                 type: USER_LOADED,
                 payload: res.data
             });
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            dispatch(returnErrors(err.response.data,
+                err.response.status));
+            dispatch({
+                type: AUTH_ERROR
+            });
+        });
 }
 
 
@@ -66,7 +72,7 @@ export const tokenConfig = getState => {
     // If token, add to headers config
     if (token) {
         config.headers['Authorization'] = `Token ${token}`;
-    }    
+    }
 
     return config;
 };
