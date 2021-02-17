@@ -7,6 +7,7 @@ import {
     AUTH_ERROR,
     LOGIN_FAIL,
     LOGIN_SUCCESS,
+    LOGOUT_SUCCESS,
 } from './types';
 
 
@@ -51,10 +52,31 @@ export const login = (username, password) => (dispatch) => {
                 payload: res.data
             });
         })
-        .catch((err) => dispatch(returnErrors(
-            err.response.data, err.response.status
-        )));
+        .catch((err) => {
+            dispatch(returnErrors(err.response.data, err.response.status));
+            dispatch({
+                type: LOGIN_FAIL
+            });
+        });
 };
+
+
+// LOGOUT USER
+export const logout = () => (dispatch, getState) => {
+    axios.post('api/auth/logout/', null, tokenConfig(getState))
+        .then(res => {
+            dispatch({
+                type: LOGOUT_SUCCESS,
+                payload: res.data
+            });
+        }).catch(err => {
+            dispatch(returnErrors(err.response.data,
+                err.response.status));
+            dispatch({
+                type: AUTH_ERROR
+            });
+        });
+}
 
 
 // Setup config with token - helper function
