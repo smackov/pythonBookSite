@@ -18,6 +18,7 @@ import Error from './layout/Error';
 import Chapters from './book/Chapters';
 import Article from './book/Article';
 import Login from './accounts/Login';
+import Register from './accounts/Register';
 import Alerts from './layout/Alerts';
 
 import { loadUser } from '../actions/auth';
@@ -49,6 +50,7 @@ class App extends Component {
                                 <Switch>
                                     <Route exact path="/" component={Chapters} />
                                     <Route exact path="/article/:id" component={Article} />
+                                    <Route exact path="/register" component={Register} />
                                     <Route exact path="/login" component={Login} />
                                     <Route component={Error} />
                                 </Switch>
