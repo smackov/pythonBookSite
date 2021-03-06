@@ -64,12 +64,44 @@
     margin-bottom: 1.3rem;
 }
 
+.index {
+    background-color: #f6f6f6!important;
+    margin-left: 20px;
+    border-radius: 4px;
+    border: 2px bold #f6f6f6;
+}
+
+.index-list {
+    display: inline;
+}
+
+/* h1, h2, h3, h4, h5, h6, a{
+    display: block;
+} */
+
+.index-list h1, 
+.index-list h2 {
+    font-size: 1rem!important;
+}
+
+.index-list h3, 
+.index-list h4, 
+.index-list h5, 
+.index-list h6 {
+    font-size: 0.8rem!important;
+    padding-left: 1.2rem;
+}
+
 .content h1 {
     font-size: 1.5rem;
 }
 
-.content h2, h3 {
+.content h2 {
     font-size: 1.2rem;
+}
+
+.content h3 {
+    font-size: 1.1rem;
 }
 
 /* SIDEBAR FIXED BAR FOR ARTICLES */

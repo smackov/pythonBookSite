@@ -46,7 +46,7 @@ export class Article extends Component {
         function HeadingRenderer(props) {
             var children = React.Children.toArray(props.children)
             var text = children.reduce(flatten, '')
-            var slug = text.toLowerCase().replace(/[^A-Za-z0-9_а-яА-ЯёЁ]/g, '-')
+            var slug = text.toLowerCase().replace('(', '').replace(')', '').replace(/[^A-Za-z0-9_а-яА-ЯёЁ]/g, '-')
             return React.createElement('h' + props.level, { id: slug }, props.children)
         }
 
@@ -54,22 +54,25 @@ export class Article extends Component {
             <Fragment>
                 <div className="wrapper">
                     <div className="row my-4">
-                        <div className="col-lg-3 border-right content">
-                            <div className="sidebar-item">
-                                <nav className="nav nav-list side-nav well sidebar-sticky pt-3">
-                                    <h1 className="text-15rem mb-4">Content:</h1>
-                                    <ReactMarkdown
-                                        plugins={[gfm, slug, [headings, { behavior: 'wrap' }]]}
-                                        children={this.props.article.content_index} />
-                                </nav>
-                            </div>
-                        </div>
                         <div className="col-lg-9 pl-4">
                             <div className="article-content mx-auto">
                                 <ReactMarkdown
                                     plugins={[gfm, slug]}
                                     renderers={{ heading: HeadingRenderer }}
                                     children={this.props.article.text} />
+                            </div>
+                        </div>
+
+                        <div className="col-lg-3 border-left">
+                            <div className="sidebar-item">
+                                <nav className="nav nav-list side-nav well sidebar-sticky p-2 pl-4 index">
+                                    <h1 className="text-15rem mb-4 mt-2 h4">Table of contents:</h1>
+                                    <div className="pl-2 index-list">
+                                        <ReactMarkdown
+                                            plugins={[gfm, slug, [headings, { behavior: 'wrap' }]]}
+                                            children={this.props.article.content_index} />
+                                    </div>
+                                </nav>
                             </div>
                         </div>
                     </div>
