@@ -30,12 +30,12 @@ export class Chapters extends Component {
                                                 {chapter.child_sections.map(section => {
                                                     return (
                                                         <div className="section-item my-2">
-                                                            <h2 className="text-15rem">{section.name}</h2>
+                                                            <h2 className="text-15rem">{section.serial_number}. {section.name}</h2>
                                                             <ul className="article-list mx-0 px-0">
                                                                 {section.child_articles.map(article => {
                                                                     return (
                                                                         <li key={article.id} className="article-item list-unstyled">
-                                                                            {article.serial_number} &nbsp;
+                                                                            {/* {article.serial_number} &nbsp; */}
                                                                             <Link to={`/article/${article.id}`}>{article.name}</Link>
                                                                         </li>
                                                                     )
