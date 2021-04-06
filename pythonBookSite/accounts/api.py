@@ -5,8 +5,9 @@ from knox.models import AuthToken
 from .serializers import UserSerializer, LoginSerializer, RegisterSerializer
 
 
-# Login API
 class LoginAPI(generics.GenericAPIView):
+    """The api for login process."""
+
     serializer_class = LoginSerializer
 
     def post(self, request, *args, **kwargs):
@@ -14,13 +15,15 @@ class LoginAPI(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data
         return Response({
-            "user": UserSerializer(user, context=self.get_serializer_context()).data,
+            "user": UserSerializer(
+                user, context=self.get_serializer_context()).data,
             "token": AuthToken.objects.create(user)[1],
         })
 
 
-# Register API
 class RegisterAPI(generics.GenericAPIView):
+    """The api for register process."""
+
     serializer_class = RegisterSerializer
 
     def post(self, request, *args, **kwargs):
@@ -28,17 +31,17 @@ class RegisterAPI(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
         return Response({
-            "user": UserSerializer(user, context=self.get_serializer_context()).data,
+            "user": UserSerializer(
+                user, context=self.get_serializer_context()).data,
             "token": AuthToken.objects.create(user)[1],
         })
 
 
-# Get User API
 class UserAPI(generics.RetrieveAPIView):
-    permission_classes = [
-        permissions.IsAuthenticated,
-    ]
-    serializer_class = UserSerializer
+    """The api to get data about an authorized User."""
     
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = UserSerializer
+
     def get_object(self):
         return self.request.user

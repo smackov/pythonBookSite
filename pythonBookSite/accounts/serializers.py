@@ -3,14 +3,16 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
 
-# User Serializer
 class UserSerializer(serializers.ModelSerializer):
+    """The serializer class for Django User model."""
+    
     class Meta:
         model = User
         fields = ['id', 'username', 'email']
         
-#  Login Serializer
 class LoginSerializer(serializers.Serializer):
+    """The serializer class for login process."""
+    
     username = serializers.CharField()
     password = serializers.CharField()
 
@@ -21,6 +23,8 @@ class LoginSerializer(serializers.Serializer):
         raise serializers.ValidationError("Incorrect Credentials")
 
 class RegisterSerializer(serializers.ModelSerializer):
+    """The serializer class for register process."""
+    
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'password']
