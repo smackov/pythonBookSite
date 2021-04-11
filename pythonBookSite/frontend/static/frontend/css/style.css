@@ -65,7 +65,7 @@
 }
 
 .index {
-    background-color: #f6f6f6!important;
+    background-color: #fcfcfc!important;
     margin-left: 20px;
     border-radius: 4px;
     border: 2px bold #f6f6f6;
@@ -75,13 +75,19 @@
     display: inline;
 }
 
-/* h1, h2, h3, h4, h5, h6, a{
-    display: block;
-} */
+#index-list > h2 > a {
+    color: #040404a8;
+    font-size: 90%;
+}
+
+.nav.index{
+    min-height: 100px;
+}
 
 .index-list h1, 
 .index-list h2 {
     font-size: 1rem!important;
+    margin-top: 0.7rem;
 }
 
 .index-list h3, 

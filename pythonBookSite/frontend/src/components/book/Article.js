@@ -66,8 +66,8 @@ export class Article extends Component {
                         <div className="col-lg-3 border-left">
                             <div className="sidebar-item">
                                 <nav className="nav nav-list side-nav well sidebar-sticky p-2 pl-4 index">
-                                    <h1 className="text-15rem mb-4 mt-2 h4">Table of contents:</h1>
-                                    <div className="pl-2 index-list">
+                                    <h1 className="text-15rem mb-4 mt-2 ml-3 h4">Content</h1>
+                                    <div id="index-list" className="pl-2 index-list">
                                         <ReactMarkdown
                                             plugins={[gfm, slug, [headings, { behavior: 'wrap' }]]}
                                             children={this.props.article.content_index} />
