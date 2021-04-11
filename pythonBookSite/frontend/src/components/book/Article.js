@@ -65,7 +65,7 @@ export class Article extends Component {
 
                         <div className="col-lg-3 border-left">
                             <div className="sidebar-item">
-                                <nav className="nav nav-list side-nav well sidebar-sticky p-2 pl-4 index">
+                                <nav className="nav nav-list side-nav well sidebar-sticky p-2 ml-2 index">
                                     <h1 className="text-15rem mb-4 mt-2 ml-3 h4">Content</h1>
                                     <div id="index-list" className="pl-2 index-list">
                                         <ReactMarkdown
